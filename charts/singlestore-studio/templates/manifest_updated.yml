@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: singlestore-studio
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/chencivalue/singlestore-studio-helm.git'
+    path: charts/singlestore-studio
+    targetRevision: HEAD
+    helm:
+      
+      parameters:
+        - name: replicaCount
+          value: "2"
+        - name: resources.requests.cpu
+          value: "200m"
+        - name: resources.requests.memory
+          value: "256Mi"
+        - name: resources.limits.memory
+          value: "512Mi"
+        - name: service.type
+          value: "LoadBalancer"
+        - name: ingress.enabled
+          value: "true"
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: singlestore
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

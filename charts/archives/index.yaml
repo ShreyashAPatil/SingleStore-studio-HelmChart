@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  singlestore-studio:
+  - apiVersion: v2
+    appVersion: 4.0.11
+    created: "2023-01-31T18:02:58.697231+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 0dae584fdc4466d61a619965b475436b9443f2bec9cd56bc8175ff4ec61773ef
+    name: singlestore-studio
+    type: application
+    urls:
+    - singlestore-studio-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-01-31T18:02:58.696216+02:00"
